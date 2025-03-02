@@ -92,6 +92,11 @@ header {
     height: 23px;
 }
 
+.icon:hover,
+.icon:focus {
+    transform: scale(1.2);
+}
+
 .likes,
 .comment {
     padding: 0 10px;

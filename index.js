@@ -1,4 +1,4 @@
-const posts = [
+let posts = [
   {
     name: "Vincent van Gogh",
     username: "vincey1853",
@@ -29,6 +29,13 @@ const posts = [
   },
 ];
 
+const postsFromStorage = localStorage.getItem("posts");
+
+if (postsFromStorage) {
+  console.log("from storage");
+  posts = JSON.parse(postsFromStorage);
+}
+
 const contentEl = document.getElementById("content");
 
 function renderContent() {
@@ -49,12 +56,25 @@ function renderContent() {
                 <img class="icon" src="./images/icon-comment.png">
                 <img class="icon" src="./images/icon-dm.png">
             </div>
-            <p class="likes bold"> ${posts[i].likes} likes</p>
+            <p class="likes bold"><span class="like-count">${posts[i].likes}</span> likes</p>
             <p class="comment"><span class="bold">${posts[i].username} </span>${posts[i].comment}</p>
         </div>`;
     htmlPosts.push(postContainer);
   }
   contentEl.innerHTML = htmlPosts.join("");
+
+  const postEls = document.querySelectorAll(".post-container");
+  for (let i = 0; i < postEls.length; i++) {
+    const postImg = postEls[i].querySelector(".post-img");
+    const likeCountEl = postEls[i].querySelector(".like-count");
+    postImg.addEventListener("dblclick", function () {
+      let currentLikes = Number(likeCountEl.textContent);
+      likeCountEl.textContent = currentLikes + 1;
+      posts[i].likes = currentLikes + 1;
+      localStorage.setItem("posts", JSON.stringify(posts));
+      console.log(`post ${i + 1} clicked!`);
+    });
+  }
 }
 
 renderContent();
