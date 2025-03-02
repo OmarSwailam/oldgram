@@ -1,0 +1,103 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Source Sans 3", serif;
+    background: #EDEDED;
+    display: flex;
+    justify-content: center;
+}
+
+.app {
+    width: 375px;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #C6C6C6;
+    background: #FFFFFF;
+}
+
+.logo {
+    width: 127px;
+    object-fit: contain;
+}
+
+.avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-container {
+    background: #FFFFFF;
+    padding-bottom: 10px;
+}
+
+.post-header {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.post-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.name {
+    margin: 0;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16.34px;
+    letter-spacing: 0%;
+}
+
+.location {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15.08px;
+    letter-spacing: 0%;
+    margin: 0;
+}
+
+.post-img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.icons {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    width: 23px;
+    height: 23px;
+}
+
+.likes,
+.comment {
+    padding: 0 10px;
+    margin: 2px 0;
+}
+
+.bold {
+    font-weight: 700;
+}
