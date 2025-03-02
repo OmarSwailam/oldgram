@@ -1,3 +1,4 @@
+/* General Resets */
 html,
 body {
     margin: 0;
@@ -11,21 +12,53 @@ body {
     justify-content: center;
 }
 
+/* Layout */
 .app {
     width: 375px;
     display: flex;
     flex-direction: column;
 }
 
-header {
+header,
+.post-header,
+.icons {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+}
+
+header {
+    justify-content: space-between;
     padding: 10px;
     border-bottom: 1px solid #C6C6C6;
     background: #FFFFFF;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Shared Styles */
+.post-container,
+header {
+    background: #FFFFFF;
+}
+
+.padding-10 {
+    padding: 10px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+/* Components */
 .logo {
     width: 127px;
     object-fit: contain;
@@ -37,43 +70,34 @@ header {
     border-radius: 50%;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 .post-container {
-    background: #FFFFFF;
     padding-bottom: 10px;
 }
 
 .post-header {
-    display: flex;
     gap: 10px;
     padding: 10px;
 }
 
 .post-heading {
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
 }
 
-.name {
+.name,
+.location {
     margin: 0;
+}
+
+.name {
     font-weight: 700;
     font-size: 13px;
     line-height: 16.34px;
-    letter-spacing: 0%;
 }
 
 .location {
     font-weight: 400;
     font-size: 12px;
     line-height: 15.08px;
-    letter-spacing: 0%;
-    margin: 0;
 }
 
 .post-img {
@@ -83,13 +107,13 @@ header {
 
 .icons {
     padding: 10px;
-    display: flex;
     gap: 10px;
 }
 
 .icon {
     width: 23px;
     height: 23px;
+    transition: transform 0.2s ease-in-out;
 }
 
 .icon:hover,
