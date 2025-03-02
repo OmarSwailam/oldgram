@@ -6,7 +6,7 @@ let posts = [
     avatar: "images/avatar-vangogh.jpg",
     post: "images/post-vangogh.jpg",
     comment: "just took a few mushrooms lol",
-    likes: 21,
+    likes: localStorage.getItem("likes0") || 21,
   },
   {
     name: "Gustave Courbet",
@@ -15,7 +15,7 @@ let posts = [
     avatar: "images/avatar-courbet.jpg",
     post: "images/post-courbet.jpg",
     comment: "i'm feelin a bit stressed tbh",
-    likes: 4,
+    likes: localStorage.getItem("likes1") || 4,
   },
   {
     name: "Joseph Ducreux",
@@ -25,16 +25,11 @@ let posts = [
     post: "images/post-ducreux.jpg",
     comment:
       "gm friends! which coin are YOU stacking up today?? post below and WAGMI!",
-    likes: 152,
+    likes: localStorage.getItem("likes2") || 152,
   },
 ];
 
 const postsFromStorage = localStorage.getItem("posts");
-
-if (postsFromStorage) {
-  console.log("from storage");
-  posts = JSON.parse(postsFromStorage);
-}
 
 const contentEl = document.getElementById("content");
 
@@ -69,9 +64,9 @@ function renderContent() {
     const likeCountEl = postEls[i].querySelector(".like-count");
     postImg.addEventListener("dblclick", function () {
       let currentLikes = Number(likeCountEl.textContent);
-      likeCountEl.textContent = currentLikes + 1;
-      posts[i].likes = currentLikes + 1;
-      localStorage.setItem("posts", JSON.stringify(posts));
+      let newLikes = currentLikes + 1;
+      likeCountEl.textContent = newLikes;
+      localStorage.setItem(`likes${i}`, JSON.stringify(newLikes));
       console.log(`post ${i + 1} clicked!`);
     });
   }
